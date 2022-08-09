@@ -1,7 +1,7 @@
 import React from 'react';
 import { GlobalProvider } from './context/GlobalStateContext';
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from './comps/Dashboard';
 import Login from './comps/Login';
 
