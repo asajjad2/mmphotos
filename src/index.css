@@ -35,7 +35,7 @@ section.title {
   margin-bottom: 52px;
 }
 
-h1 {
+h1,h2 {
   font-family: "Ink Free";
   font-style: normal;
   font-weight: 400;
@@ -160,4 +160,59 @@ form .error{
   max-height: 80%;
   border: 3px solid white;
   box-shadow: 3px 5px 7px rgba(0, 0, 0, 0.5);
+}
+
+.login{
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.d-flex-col{
+  display: flex;
+  flex-direction: column;
+}
+
+.login > div{
+  gap: 1rem;
+  background-color: var(--secondary);
+  padding: 3rem;
+  border-radius: 12px;
+}
+
+.login form{
+  gap: 1rem;
+  min-width: 20rem;
+}
+
+.login form > *{
+  width: 100%;
+  height: 2.5rem;
+  font-size: 1.2rem;
+  text-align: left;
+  padding: 0.6rem;
+  font-family: "Lato";
+  font-style: normal;
+
+}
+
+.login form > button{
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login h2{
+  margin: 0 auto;
+  font-size: 42px;
+}
+
+.login .error{
+  background-color: var(--error);
+  color: black;
+  font-weight: 500;
+
 }

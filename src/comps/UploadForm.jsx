@@ -1,10 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
 import ProgressBar from "./ProgressBar";
+import { useGlobalContext } from '../context/GlobalStateContext';
 
 
 const UploadForm = () => {
 
+    const { currentUser } = useGlobalContext();
     
     const [file,setFile] = useState(null);
     const [err,setErr] = useState(null);
@@ -29,10 +31,15 @@ const UploadForm = () => {
     return (
         <form>
 
-            <label>
-                <input type="file" className="hide" onChange={(e)=>handleChange(e.target)} />
-                <div>+</div>
-            </label>
+            {
+                currentUser && (
+                    <label>
+                        <input type="file" className="hide" onChange={(e)=>handleChange(e.target)} />
+                        <div>+</div>
+                    </label>
+                )
+            }
+            
 
             <div className="output">
                 {err && <div className='error'>{err}</div>}

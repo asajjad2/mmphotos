@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
-import { GlobalContext } from '../context/GlobalStateContext';
+import React from 'react';
+import { useGlobalContext } from '../context/GlobalStateContext';
 import { motion } from "framer-motion";
 
 const Modal = () => {
 
-    const {selectedImage, setSelectedImage} = useContext(GlobalContext);
+    const {selectedImage, setSelectedImage} = useGlobalContext();
 
     function handleClick(e){
         if(e.target.classList.contains('modal')){

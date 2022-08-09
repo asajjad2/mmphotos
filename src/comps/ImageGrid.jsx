@@ -1,12 +1,11 @@
 import React from "react";
 import useFirestore from "../hooks/useFirestore";
-import { GlobalContext } from '../context/GlobalStateContext';
-import { useContext } from "react";
+import { useGlobalContext } from '../context/GlobalStateContext';
 import {AnimatePresence, motion} from "framer-motion";
 
 const ImageGrid = () => {
 
-    const {setSelectedImage} = useContext(GlobalContext);
+    const {setSelectedImage} = useGlobalContext();
 
     const {docs} = useFirestore('images');
     console.log(docs);
