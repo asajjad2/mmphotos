@@ -14,7 +14,7 @@ const UploadForm = () => {
     const handleChange = ({files}) => {
 
         let selected = files[0];
-        console.log(selected);
+        // console.log(selected);
 
 
         let acceptedTypes = ['image/png','image/jpeg'];

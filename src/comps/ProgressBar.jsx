@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 const ProgressBar = ({file,setFile}) => {
 
     const { progress, url} = useStorage(file);
-    console.log(progress);
-    console.log(url);
+    // console.log(progress);
+    // console.log(url);
 
     useEffect(()=>{
         if(url){

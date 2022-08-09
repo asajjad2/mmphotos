@@ -126,12 +126,26 @@ form .error{
 
 .image-grid{
   /* margin: 20px auto; */
+  width: 100vw;
   display: grid;
   grid-template-columns: repeat(3,1fr);
 }
 
 .image-grid .image{
   opacity: 0.8;
+  position: relative;
+}
+
+.image-grid .trash-icon{
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+  background-color: #eaeaea;
+  border-radius: 6px;
+  padding: 7px;
 }
 
 .image-grid img{
@@ -203,6 +217,10 @@ form .error{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.login form > button:disabled{
+  cursor: not-allowed;
 }
 
 .login h2{

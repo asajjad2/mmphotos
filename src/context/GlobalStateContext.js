@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
-import { auth } from '../firebase/config';
+import { auth, projectFireStore, projectStorage } from '../firebase/config';
 
 
 const initialState = {selectedImage : '', currentUser : null}
@@ -26,10 +26,29 @@ export const GlobalProvider = ({children}) => {
         })
     }
 
+    const deleteFromStorage = (url) => {
+      let pictureRef = projectStorage.refFromURL(url);
+      pictureRef.delete()
+        .then(() => {
+          alert("Picture is deleted successfully!");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+
+    async function deleteImage(doc){
+      await projectFireStore.collection('images').doc(doc.id).delete();
+      // console.log(res);
+      deleteFromStorage(doc.url);
+    }
+    
+   
+
     useEffect(() => {
 
       const unsubscribe = auth.onAuthStateChanged(authUser => {
-          console.log(authUser);
+          // console.log(authUser);
           setState((prev)=>{
             return {...prev, currentUser: authUser};
         })
@@ -43,7 +62,8 @@ export const GlobalProvider = ({children}) => {
       setSelectedImage,
       currentUser : state.currentUser,
       login,
-      logout
+      logout,
+      deleteImage
     }
     
      
